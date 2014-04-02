@@ -1,3 +1,68 @@
+" Mouse and backspace
+set mouse=a  " on OSX press ALT and click
+set bs=2     " make backspace behave like normal again
+
+" Rebind <Leader> key
+" I like to have it here becuase it is easier to reach than the default and
+" it is next to ``m`` and ``n`` which I use for navigating between tabs.
+let mapleader = ","
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+
+" mkdir -p ~/.vim/bundle
+" git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+"" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"" au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Q: Cannot load colorscheme when reloading .vimrc.                                   
+" https://github.com/Shougo/neobundle.vim/issues/157                                  
+" A: You must write :NeoBundle lines before filetype plugin indent on and syntax  
+" enable. 
+" vim php manul
+" https://github.com/thinca/vim-ref.git
+" sudo port install lynx
+" lynx is necessary
+set nocompatible               " Be iMproved
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+call neobundle#rc(expand('~/.vim/bundle/'))
+" NeoBundle 'vim-ref'
+
+
+" Color scheme
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set t_Co=256
+color wombat256mod
+
+
+" Enable syntax highlighting
+" You need to reload this file for the change to apply
+filetype off
+filetype plugin indent on
+syntax on
+
+
+" Showing line numbers and length
+set number  " show line numbers
+set tw=79   " width of document (used by gd)
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
+
 set nocompatible
 set backspace=indent,eol,start
 set tabstop=4
@@ -10,7 +75,7 @@ set incsearch
 syntax on
 filetype plugin indent on
 set viminfo='20,\"50
-set history=50
+set history=700
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
     " In text files, always limit the width of text to 78 characters
@@ -104,3 +169,5 @@ let OmniCpp_DefaultNamespaces=["std","_GLIBCXX_STD"]
 set tags+=~/.vim/systags
 
 "added by check-c end"
+
+set gfn=Source\ Code\ Pro:h13
