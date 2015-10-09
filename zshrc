@@ -1,4 +1,5 @@
 # load zgen
+# 需要去github上下载zgen
 source "${HOME}/laiconglin/zgen/zgen.zsh"
 
 # check if there's no init script
