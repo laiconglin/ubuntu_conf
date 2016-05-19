@@ -1,0 +1,74 @@
+" Mouse and backspace
+" set mouse=a  " on OSX press ALT and click
+set bs=2     " make backspace behave like normal again
+
+" Rebind <Leader> key
+" I like to have it here becuase it is easier to reach than the default and
+" it is next to ``m`` and ``n`` which I use for navigating between tabs.
+let mapleader = ","
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" Color scheme
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set t_Co=256
+color wombat256mod
+
+" Enable syntax highlighting
+" You need to reload this file for the change to apply
+filetype off
+filetype plugin indent on
+syntax on
+
+" Showing line numbers and length
+set number  " show line numbers
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=233
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+    " In text files, always limit the width of text to 78 characters
+    " autocmd BufRead *.txt set tw=78
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \   exe "normal g'\"" |
+        \ endif
+endif
+
+set fileencodings=utf-8,gbk,gb2312
+"added by check-c"
+set nocompatible
+set backspace=indent,eol,start
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set cindent
+set ai
+set smartindent
+set smarttab
+set ruler
+set showcmd
+set hlsearch
+set incsearch
+set expandtab
+syntax on
+filetype plugin indent on
+set viminfo='20,\"50
+set history=50
+" set bg=dark
+set nu
+imap <c-w> <Esc>
+
+set noswapfile
